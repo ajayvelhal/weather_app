@@ -1,5 +1,3 @@
-
-
 import 'package:weather_app/core/usecases/usecase.dart';
 import 'package:weather_app/features/weather/domain/entities/weather.dart';
 import 'package:weather_app/features/weather/data/repositories/weather_repository.dart';
@@ -19,11 +17,8 @@ class CurrentLocationWeather extends Usecase<Weather, CoordinatesParams> {
   CurrentLocationWeather(this.weatherRepository);
 
   @override
-  Future<Either<Failure,Weather>> call(CoordinatesParams params) async {
+  Future<Either<Failure, Weather>> call(CoordinatesParams params) async {
     return await weatherRepository.getCurrentLocationWeather(
         params.lat, params.long);
-
   }
-
-
 }

@@ -10,7 +10,9 @@ abstract class WeatherRemoteData {
 }
 
 class WeatherRemoteDataImpl extends WeatherRemoteData {
-  final Dio dio = Dio();
+  final Dio dio;
+
+  WeatherRemoteDataImpl(this.dio);
 
   @override
   Future<Map<String, dynamic>> getCityWeather(String cityName) async {
