@@ -12,7 +12,6 @@ class WeatherBloc extends Bloc<WeatherEvent, WeatherState> {
   WeatherBloc(this.currentLocationWeather, this.getCityWeather)
       : super(WeatherInitial());
 
-  @override
   Stream<WeatherState> mapEventToState(WeatherEvent event) async* {
     if (event is FetchCurrentLocationWeather) {
       yield WeatherLoading();

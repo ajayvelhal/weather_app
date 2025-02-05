@@ -24,7 +24,9 @@ class WeatherRepositoryImpl extends WeatherRepository{
   Future<Either<Failure, Weather>> getCityWeather(String cityName) async {
     try {
       final weatherData = await remoteData.getCityWeather(cityName);
+      print(weatherData);
       return Right(WeatherModel.fromJson(weatherData) as Weather);
+
     } catch (e) {
       return Left(Failure('Failed to load weather data'));
     }
@@ -34,6 +36,7 @@ class WeatherRepositoryImpl extends WeatherRepository{
   Future<Either<Failure, Weather>> getCurrentLocationWeather(double lat, double long) async {
     try {
       final weatherData = await remoteData.getCurrentLocationWeather(lat, long);
+
       return Right(WeatherModel.fromJson(weatherData) as Weather);
     } catch (e) {
       return Left(Failure('Failed to load weather data'));
